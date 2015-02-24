@@ -1,7 +1,7 @@
 {% load i18n %}
 {% trans "Bonjour membres du CA," %}
 
-{% blocktrans with asso_name=app.site.association.name %}
+{% blocktrans %}
 Le membre {{ username }} souhaiterait adhérer à {{ asso_name }}.
 {% endblocktrans %}
 
@@ -17,4 +17,4 @@ Le membre {{ username }} souhaiterait adhérer à {{ asso_name }}.
 
 {% trans "Cordialement," %}
 
-{{ app.member.bot_account }}
+{{ bot_name }}

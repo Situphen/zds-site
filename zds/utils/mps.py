@@ -54,7 +54,7 @@ def send_mp(
     # send email
     if send_by_mail:
         if direct:
-            subject = u"{} : {}".format(settings.ZDS_APP['site']['abbr'], n_topic.title)
+            subject = u"{} : {}".format(settings.ZDS_APP['site']['litteral_name'], n_topic.title)
             from_email = u"{} <{}>".format(settings.ZDS_APP['site']['litteral_name'],
                                            settings.ZDS_APP['site']['email_noreply'])
             for part in users:
@@ -86,14 +86,16 @@ def send_mp(
                     Context({
                         'username': part.username,
                         'url': settings.ZDS_APP['site']['url'] + n_topic.get_absolute_url(),
-                        'author': author.username
+                        'author': author.username,
+                        'site_name': settings.ZDS_APP['site']['litteral_name']
                     })
                 )
                 message_txt = get_template('email/mp/new.txt').render(
                     Context({
                         'username': part.username,
                         'url': settings.ZDS_APP['site']['url'] + n_topic.get_absolute_url(),
-                        'author': author.username
+                        'author': author.username,
+                        'site_name': settings.ZDS_APP['site']['litteral_name']
                     })
                 )
 

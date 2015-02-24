@@ -76,7 +76,9 @@ def assoc_subscribe(request):
                 'justification': data['justification'],
                 'username': user.username,
                 'profile_url': settings.ZDS_APP['site']['url'] + reverse('member-detail',
-                                                                         kwargs={'user_name': user.username})
+                                                                         kwargs={'user_name': user.username}),
+                'bot_name': settings.ZDS_APP['member']['bot_account'],
+                'asso_name': settings.ZDS_APP['site']['association']['litteral_name']
             }
             # Send email
             subject = "Demande d'adhésion de {}".format(user.username)

@@ -7,8 +7,8 @@
         {% trans "Bonjour membres du CA," %}
     </p>
     <p>
-        {% blocktrans with asso_name=app.site.association.name %}
-        Le membre {{ username }} souhaiterait adhérer à {{asso_name}}.
+        {% blocktrans %}
+        Le membre {{ username }} souhaiterait adhérer à {{ asso_name }}.
         {% endblocktrans %}
     </p>
     <ul>
@@ -30,6 +30,6 @@
         {% trans "Cordialement," %}
     </p>
     <p>
-        {{ app.member.bot_account }}
+        {{ bot_name }}
     </p>
 {% endblock %}

@@ -517,7 +517,7 @@ def answer(request):
                 g_topic.last_message = post
                 g_topic.save()
                 # Send mail
-                subject = u"{} - Notification : {}".format(settings.ZDS_APP['site']['abbr'],
+                subject = u"{} - Notification : {}".format(settings.ZDS_APP['site']['litteral_name'],
                                                            g_topic.title)
                 from_email = "{0} <{1}>".format(settings.ZDS_APP['site']['litteral_name'],
                                                 settings.ZDS_APP['site']['email_noreply'])
@@ -532,24 +532,23 @@ def answer(request):
                         post__position=pos,
                         user=receiver).count()
                     if last_read > 0:
-                        message_html = get_template('email/notification/new.html') \
-                            .render(
-                                Context({
-                                    'username': receiver.username,
-                                    'title': g_topic.title,
-                                    'url': settings.ZDS_APP['site']['url'] + post.get_absolute_url(),
-                                    'author': request.user.username
-                                }))
+                        message_html = get_template('email/notification/new.html').render(
+                            Context({
+                                'username': receiver.username,
+                                'title': g_topic.title,
+                                'url': settings.ZDS_APP['site']['url'] + post.get_absolute_url(),
+                                'author': request.user.username,
+                                'site_name': settings.ZDS_APP['site']['litteral_name']
+                            }))
                         message_txt = get_template('email/notification/new.txt').render(
                             Context({
                                 'username': receiver.username,
                                 'title': g_topic.title,
                                 'url': settings.ZDS_APP['site']['url'] + post.get_absolute_url(),
-                                'author': request.user.username
+                                'author': request.user.username,
+                                'site_name': settings.ZDS_APP['site']['litteral_name']
                             }))
-                        msg = EmailMultiAlternatives(
-                            subject, message_txt, from_email, [
-                                receiver.email])
+                        msg = EmailMultiAlternatives(subject, message_txt, from_email, [receiver.email])
                         msg.attach_alternative(message_html, "text/html")
                         msg.send()
 
