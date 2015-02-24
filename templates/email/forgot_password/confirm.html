@@ -1,9 +1,8 @@
+{% extends "email/base.html" %}
+
 {% load i18n %}
-<html lang="fr">
-<head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-</head>
-<body>
+
+{% block content %}
     {% trans "Bonjour" %} <strong>{{ username }}</strong>,
     <br />
     <br />
@@ -23,4 +22,4 @@
     {% trans "Cordialement" %},
     <br />
     {% trans "L'équipe" %} {{ site_name }}
-</body>
+{% endblock}
