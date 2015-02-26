@@ -15,8 +15,7 @@ from django.db import transaction
 from django.db.models import Q
 from django.http import Http404, HttpResponse, StreamingHttpResponse
 from django.shortcuts import redirect, get_object_or_404, render, render_to_response
-from django.template import Context
-from django.template.loader import get_template
+from django.template.loader import render_to_string
 from django.views.decorators.http import require_POST
 from django.forms.util import ErrorList
 from django.core.exceptions import ObjectDoesNotExist
@@ -338,7 +337,9 @@ def answer(request):
                 g_topic.save()
 
                 # send email
-                subject = u"{} - MP : {}".format(settings.ZDS_APP['site']['litteral_name'], g_topic.title)
+                subject = u"{} - {} : {}".format(settings.ZDS_APP['site']['litteral_name'],
+                                                 _(u'Message Privé'),
+                                                 g_topic.title)
                 from_email = u"{} <{}>".format(settings.ZDS_APP['site']['litteral_name'],
                                                settings.ZDS_APP['site']['email_noreply'])
                 parts = list(g_topic.participants.all())
@@ -353,20 +354,14 @@ def answer(request):
                             privatepost__position_in_topic=pos,
                             user=part).count()
                         if last_read > 0:
-                            message_html = get_template('email/mp/new.html').render(
-                                Context({
-                                    'username': part.username,
-                                    'url': settings.ZDS_APP['site']['url'] + post.get_absolute_url(),
-                                    'author': request.user.username,
-                                    'site_name': settings.ZDS_APP['site']['litteral_name']
-                                }))
-                            message_txt = get_template('email/mp/new.txt').render(
-                                Context({
-                                    'username': part.username,
-                                    'url': settings.ZDS_APP['site']['url'] + post.get_absolute_url(),
-                                    'author': request.user.username,
-                                    'site_name': settings.ZDS_APP['site']['litteral_name']
-                                }))
+                            context = {
+                                'username': part.username,
+                                'url': settings.ZDS_APP['site']['url'] + post.get_absolute_url(),
+                                'author': request.user.username,
+                                'site_name': settings.ZDS_APP['site']['litteral_name']
+                            }
+                            message_html = render_to_string('email/mp/new.html', context)
+                            message_txt = render_to_string('email/mp/new.txt', context)
 
                             msg = EmailMultiAlternatives(subject, message_txt, from_email, [part.email])
                             msg.attach_alternative(message_html, "text/html")
