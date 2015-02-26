@@ -767,7 +767,7 @@ def generate_token_account(request):
     context = {
         "username": token.user.username,
         "site_url": settings.ZDS_APP['site']['url'],
-        "site_name": settings.ZDS_APP['site']['name'],
+        "site_name": settings.ZDS_APP['site']['litteral_name'],
         "url": settings.ZDS_APP['site']['url'] + token.get_absolute_url()
     }
     message_html = render_to_string("email/member/confirm_registration.html", context)

@@ -151,7 +151,7 @@ class TokenGenerator(object):
         context = {
             'username': user.username,
             'url': settings.ZDS_APP['site']['url'] + token.get_absolute_url(),
-            'site_name': settings.ZDS_APP['site']['name'],
+            'site_name': settings.ZDS_APP['site']['litteral_name'],
             'site_url': settings.ZDS_APP['site']['url']
         }
         message_html = render_to_string('email/member/confirm_registration.html', context)
