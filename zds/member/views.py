@@ -625,7 +625,7 @@ def forgot_password(request):
                                           settings.ZDS_APP['site']['email_noreply'])
             context = {
                 "username": usr.username,
-                "site_name": settings.ZDS_APP['site']['name'],
+                "site_name": settings.ZDS_APP['site']['litteral_name'],
                 "site_url": settings.ZDS_APP['site']['url'],
                 "url": settings.ZDS_APP['site']['url'] + token.get_absolute_url()
             }
@@ -732,7 +732,7 @@ def active_account(request):
     send_mp(
         bot,
         [usr],
-        _(u"Bienvenue sur {}").format(settings.ZDS_APP['site']['name']),
+        _(u"Bienvenue sur {}").format(settings.ZDS_APP['site']['litteral_name']),
         _(u"Le manuel du nouveau membre"),
         msg,
         True,
