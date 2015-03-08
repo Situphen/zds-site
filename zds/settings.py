@@ -468,6 +468,7 @@ ZDS_APP = {
     },
     'news': {
         'news_per_page': 100,
+        'home_number': 5,
     },
     'paginator': {
         'folding_limit': 4
