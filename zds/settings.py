@@ -188,6 +188,7 @@ INSTALLED_APPS = (
     'zds.forum',
     'zds.tutorial',
     'zds.member',
+    'zds.news',
     # Uncomment the next line to enable the admin:
     'django.contrib.admin',
     # Uncomment the next line to enable admin documentation:
@@ -464,6 +465,9 @@ ZDS_APP = {
         'max_post_length': 1000000,
         'top_tag_max': 5,
         'home_number': 5,
+    },
+    'news': {
+        'news_per_page': 100,
     },
     'paginator': {
         'folding_limit': 4
