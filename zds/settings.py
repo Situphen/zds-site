@@ -445,7 +445,7 @@ ZDS_APP = {
         'image_max_size': 1024 * 1024,
     },
     'article': {
-        'home_number': 5,
+        'home_number': 4,
         'repo_path': os.path.join(SITE_ROOT, 'articles-data')
     },
     'tutorial': {
