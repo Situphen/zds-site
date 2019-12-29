@@ -18,22 +18,12 @@ class UserFactory(factory.DjangoModelFactory):
 
     username = factory.Sequence('firm{0}'.format)
     email = factory.Sequence('firm{0}@zestedesavoir.com'.format)
-    password = 'hostel77'
+    password = factory.PostGenerationMethodCall('set_password', 'hostel77')
 
     is_active = True
 
-    @classmethod
-    def _prepare(cls, create, **kwargs):
-        password = kwargs.pop('password', None)
-        user = super(UserFactory, cls)._prepare(create, **kwargs)
-        if password:
-            user.set_password(password)
-            if create:
-                user.save()
-        return user
 
-
-class StaffFactory(factory.DjangoModelFactory):
+class StaffFactory(UserFactory):
     """
     This factory creates staff User.
     WARNING: Don't try to directly use `StaffFactory`, this didn't create associated Profile then don't work!
@@ -42,20 +32,8 @@ class StaffFactory(factory.DjangoModelFactory):
     class Meta:
         model = User
 
-    username = factory.Sequence('firmstaff{0}'.format)
-    email = factory.Sequence('firmstaff{0}@zestedesavoir.com'.format)
-    password = 'hostel77'
-
-    is_active = True
-
-    @classmethod
-    def _prepare(cls, create, **kwargs):
-        password = kwargs.pop('password', None)
-        user = super(StaffFactory, cls)._prepare(create, **kwargs)
-        if password:
-            user.set_password(password)
-            if create:
-                user.save()
+    @factory.post_generation
+    def groups(self, create, extracted, **kwargs):
         group_staff = Group.objects.filter(name='staff').first()
         if group_staff is None:
             group_staff = Group(name='staff')
@@ -67,13 +45,11 @@ class StaffFactory(factory.DjangoModelFactory):
         perms = Permission.objects.filter(codename__startswith='change_').all()
         for perm in perms:
             group_staff.permissions.add(perm)
-        user.groups.add(group_staff)
 
-        user.save()
-        return user
+        self.groups.add(group_staff)
 
 
-class DevFactory(factory.DjangoModelFactory):
+class DevFactory(UserFactory):
     """
     This factory creates dev User.
     WARNING: Don't try to directly use `DevFactory`, this didn't create associated Profile then don't work!
@@ -82,29 +58,14 @@ class DevFactory(factory.DjangoModelFactory):
     class Meta:
         model = User
 
-    username = factory.Sequence('firmdev{0}'.format)
-    email = factory.Sequence('firmdev{0}@zestedesavoir.com'.format)
-    password = 'hostel77'
-
-    is_active = True
-
-    @classmethod
-    def _prepare(cls, create, **kwargs):
-        password = kwargs.pop('password', None)
-        user = super(DevFactory, cls)._prepare(create, **kwargs)
-        if password:
-            user.set_password(password)
-            if create:
-                user.save()
+    @factory.post_generation
+    def groups(self, create, extracted, **kwargs):
         group_dev = Group.objects.filter(name=settings.ZDS_APP['member']['dev_group']).first()
         if group_dev is None:
             group_dev = Group(name=settings.ZDS_APP['member']['dev_group'])
             group_dev.save()
 
-        user.groups.add(group_dev)
-
-        user.save()
-        return user
+        self.groups.add(group_dev)
 
 
 class ProfileFactory(factory.DjangoModelFactory):
@@ -130,6 +91,8 @@ class ProfileNotSyncFactory(ProfileFactory):
     """
     Use this factory when you want a user with wrong identifiers.
     """
+    class Meta:
+        model = Profile
     id = factory.Sequence(lambda n: n + 99999)
 
 
@@ -142,15 +105,6 @@ class StaffProfileFactory(factory.DjangoModelFactory):
 
     user = factory.SubFactory(StaffFactory)
 
-    last_ip_address = '192.168.2.1'
-    site = 'www.zestedesavoir.com'
-
-    @factory.lazy_attribute
-    def biography(self):
-        return 'My name is {0} and I i\'m the guy who kill the bad guys '.format(self.user.username.lower())
-
-    sign = 'Please look my flavour'
-
 
 class DevProfileFactory(factory.DjangoModelFactory):
     """
@@ -160,15 +114,6 @@ class DevProfileFactory(factory.DjangoModelFactory):
         model = Profile
 
     user = factory.SubFactory(DevFactory)
-
-    last_ip_address = '192.168.2.1'
-    site = 'www.zestedesavoir.com'
-
-    @factory.lazy_attribute
-    def biography(self):
-        return 'My name is {0} and I i\'m the guy who kill the bad guys '.format(self.user.username.lower())
-
-    sign = 'Please look my flavour'
 
 
 class NonAsciiUserFactory(UserFactory):

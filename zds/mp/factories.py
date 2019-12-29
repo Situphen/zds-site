@@ -17,11 +17,10 @@ class PrivatePostFactory(factory.DjangoModelFactory):
 
     text = 'Bonjour, je me présente, je m\'appelle l\'homme au texte bidonné'
 
-    @classmethod
-    def _prepare(cls, create, **kwargs):
-        ppost = super(PrivatePostFactory, cls)._prepare(create, **kwargs)
-        ptopic = kwargs.pop('privatetopic', None)
+    @factory.post_generation
+    def privatetopic(self, create, extracted, **kwargs):
+        ptopic = extracted or kwargs.pop('privatetopic', None)
         if ptopic:
-            ptopic.last_message = ppost
+            ptopic.last_message = self
             ptopic.save()
-        return ppost
+        return ptopic

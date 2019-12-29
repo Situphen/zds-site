@@ -11,7 +11,7 @@ django-model-utils==4.0.0
 django-munin==0.2.1
 python-memcached==1.59
 lxml==4.5.2
-factory-boy==2.8.1
+factory-boy==2.12.0
 geoip2==4.1.0
 Pillow==7.2.0
 GitPython==3.1.9
