@@ -57,27 +57,38 @@
             </div>
         {% endif %}
 
-        <div class="content-col-3">
-            <h3>{% trans "Système / Back-end" %}</h3>
+        <div class="content-col-2">
+            <h3>{% trans "Technologies utilisées" %}</h3>
             <p>
-                {% trans "Le back-end est propulsé par les outils suivants :" %}
+                {% trans "Derrière notre site web se cachent plusieurs langages de programmation ainsi que plusieurs logiciels, dont voici la liste." %}
             </p>
 
-            <h4>{% trans "Site" %}</h4>
+            <h4>{% trans "Façade du site web" %}</h4>
+            <ul>
+                <li><a href="https://developer.mozilla.org/fr/docs/Web/HTML">HTML</a> et <a href="https://developer.mozilla.org/fr/docs/Web/CSS">CSS</a>, indispensables à toute page web</li>
+                
+                <li><a href="https://necolas.github.io/normalize.css/">Normalize.css</a>, pour partir sur de bonnes bases</li>
+                <li><a href="https://developer.mozilla.org/fr/docs/Web/JavaScript">JavaScript</a>, pour rendre dynamique nos pages web</li>
+                <li><a href="https://jquery.com/">jQuery 3.4</a>, pour simplifier l'écriture du JavaScript</li>
+            </ul>
+
+            <h4>{% trans "Arrière boutique du site web" %}</h4>
             <ul>
                 <li><a href="https://www.python.org/">Python 3</a></li>
                 <li><a href="https://www.djangoproject.com/">Django 2.2</a></li>
+                <li><a href="https://www.django-rest-framework.org/">Django REST Framework</a>, pour notre API</li>
+                <li><a href="https://mariadb.org/">MariaDB</a></li>
             </ul>
 
-            <h4>HTTP(S) + WSGI</h4>
+            <h4>{% trans '"Passeurs"' %}</h4>
             <ul>
                 <li><a href="https://nginx.org/en/">NGinx</a></li>
                 <li><a href="https://gunicorn.org/">Gunicorn</a></li>
             </ul>
 
-            <h4>{% trans "Base de données" %}</h4>
+            <h4>{% trans "Outils des développeurs" %}</h4>
             <ul>
-                <li><a href="https://mariadb.org/">MariaDB</a></li>
+                <li><a href="https://sass-lang.com/">SCSS</a>, pour simplifier l'écriture du CSS</li>
             </ul>
 
             <h4>{% trans "Géolocalisation des adresses IP" %}</h4>
@@ -86,24 +97,6 @@
             </p>
             <ul>
                 <li><a href="https://www.maxmind.com/">http://www.maxmind.com</a></li>
-            </ul>
-        </div>
-
-        <div class="content-col-3">
-            <h3>{% trans "Front-end" %}</h3>
-            <p>
-                {% trans "Le front-end utilise les outils suivants :" %}
-            </p>
-
-            <h4>{% trans "Feuilles de style" %}</h4>
-            <ul>
-                <li><a href="https://necolas.github.io/normalize.css/">Normalize.css</a></li>
-                <li><a href="https://sass-lang.com/">SCSS</a></li>
-            </ul>
-
-            <h4>Javascript</h4>
-            <ul>
-                <li><a href="https://jquery.com/">jQuery 2.x</a></li>
             </ul>
         </div>
     </div>
