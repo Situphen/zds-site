@@ -2,7 +2,7 @@
    Manage modals boxes
    ========================================================================== */
 
-(function($) {
+(function() {
   'use strict'
 
   /**
@@ -213,10 +213,10 @@
 
   window.Modal = Modal
 
-  $(document).ready(function() {
+  document.addEventListener("DOMContentLoaded", function() {
     buildModals($('.modal'))
     $('#content').on('DOMNodeInserted', '.modal', function(e) {
       buildModals($(e.target))
     })
   })
-})(jQuery)
+})()

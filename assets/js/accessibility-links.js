@@ -4,7 +4,7 @@
    Author: Alex-D / Alexandre Demode
    ========================================================================== */
 
-(function($) {
+(function() {
   'use strict'
 
   $('#accessibility a').on('focus', function() {
@@ -18,4 +18,4 @@
       $(link).find(':tabbable').first().focus() // Focus the first focusable element
     })
   })
-})(jQuery)
+})()

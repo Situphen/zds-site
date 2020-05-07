@@ -113,7 +113,7 @@ function jsLint() {
 // Generates JS for the website
 function js() {
   return gulp.src([
-    require.resolve('jquery'),
+    require.resolve('svelte/svelte.js'),
     require.resolve('cookies-eu-banner'),
     require.resolve('moment/moment.js'),
     require.resolve('moment/locale/fr.js'),

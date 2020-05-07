@@ -5,7 +5,7 @@
    Author: Alex-D / Alexandre Demode
    ========================================================================== */
 
-(function($) {
+(function() {
   'use strict'
 
   var linkToMathsTutorial = '//zestedesavoir.com/tutoriels/244/comment-rediger-des-maths-sur-zeste-de-savoir/'
@@ -53,4 +53,4 @@
       })
     }
   })
-})(jQuery)
+})()

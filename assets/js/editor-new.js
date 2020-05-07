@@ -1,6 +1,6 @@
 /* globals oGrammalecteAPI, estPresentAntidoteAPI_JSConnect, activeAntidoteAPI_JSConnect */ // eslint-disable-line camelcase
 
-(function($) {
+(function() {
   'use strict'
 
   if (localStorage.getItem('editor_choice') !== 'new') {
@@ -754,7 +754,7 @@
 
     spellcheckerEasyMDE(easyMDE)
   })
-})(jQuery)
+})()
 
 
 function mirroringEasyMDE(easyMDE, textarea) {

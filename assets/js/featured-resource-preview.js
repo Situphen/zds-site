@@ -2,7 +2,7 @@
    Preview when editing news
    ========================================================================== */
 
-(function($) {
+(function() {
   function updatePreview(data, element) {
     var $el = $(element)
     if (data.image) {
@@ -33,4 +33,4 @@
       link: $('.featured-edit-form input[name=url]').val()
     }, $('.featured-resource-edit-form .featured-resource-item'))
   })
-})(jQuery)
+})()

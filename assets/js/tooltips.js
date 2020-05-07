@@ -1,4 +1,4 @@
-(function($) {
+(function() {
   'use strict'
 
   /**
@@ -231,4 +231,4 @@
 
     return tooltip
   }
-})(jQuery)
+})()

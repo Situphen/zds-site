@@ -4,7 +4,7 @@
    Author: Alex-D / Alexandre Demode
    ========================================================================== */
 
-(function($) {
+(function() {
   'use strict'
 
   function hidemsg() {
@@ -29,4 +29,4 @@
     $(this).parents('.message:first').find('.message-hidden-content').toggle()
     e.preventDefault()
   })
-})(jQuery)
+})()

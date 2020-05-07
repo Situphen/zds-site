@@ -1,4 +1,4 @@
-(function($) {
+(function() {
   $('[data-export-button]').click(function(e) {
     e.preventDefault()
     const $button = $(e.target)
@@ -24,4 +24,4 @@
       setTimeout(() => $button.text($button.attr('data-base-text')), 5000)
     })
   })
-})(jQuery)
+})()

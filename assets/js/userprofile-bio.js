@@ -5,7 +5,7 @@
    Author: Amaury Carrade
    ========================================================================== */
 
-(function($) {
+(function() {
   'use strict'
 
   var $bioContainer = $('body.userprofilepage .bio-container')
@@ -37,4 +37,4 @@
     $bioOverflowToggleLabel.text($bioOverflowToggleLabel.attr('data-other-label'))
     $bioOverflowToggleLabel.attr('data-other-label', oldLabel)
   })
-})(jQuery)
+})()

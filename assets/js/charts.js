@@ -1,4 +1,4 @@
-(function($) {
+(function() {
   'use strict'
 
   /**
@@ -79,13 +79,13 @@
 
   var charts = []
   function setupChart($object, formatter) {
-    var $dataX = $object.data('time')
+    var $dataX = $object.attr('data-time')
     var times = []
     $dataX.forEach(function(element) {
       times.push(window.moment(element).format('DD/MM/YYYY'))
     })
 
-    var allObjectData = $object.data()
+    var allObjectData = $object.dataset
     var data = []
     // Count how many graphs are displayed
     var nbColors = 0
@@ -97,7 +97,7 @@
     var n = 0
     for (var o in allObjectData) {
       if (o.indexOf('views') > -1) {
-        var label = $object.data('label-' + o)
+        var label = $object.attr('data-label-' + o)
         var color = hsvToRgb(n, 100, 80)
         data.push({
           label: label,
@@ -130,7 +130,7 @@
     localStorage.setItem('graphType', 'line') // default value
   }
 
-  $('#graph_type_toogle').click(function() {
+  $('#graph_type_toogle').on('click', function() {
     if (localStorage.getItem('graphType') === 'line') {
       localStorage.setItem('graphType', 'bar')
       $(this).text(switchToLine)
@@ -186,9 +186,9 @@
   }
 
   $('.tablinks').each(function() {
-    $(this).click(function() {
+    $(this).on('click', function() {
       displayTab($(this))
     })
   })
   displayTab($('.tablinks').first())
-})(jQuery)
+})()

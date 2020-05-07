@@ -16,14 +16,14 @@
     window.addEventListener("load", function() {
 
         // We look for <span> inside contents
-        $(".message-content span, .article-content span").each(function () {
+        $(".message-content span, .article-content span").each(function (elem) {
             // We only want those with no CSS class
-            if($(this).attr("class") === undefined) {
-                var text = $(this).text();
+            if($(elem).attr("class") === undefined) {
+                var text = $(elem).text();
                 // We check that they start with $ and end with $
                 if (text && text[0] == "$" && text[text.length - 1] == "$") {
                     // We add a class to mark them
-                    $(this).addClass("mathjax-span");
+                    $(elem).addClass("mathjax-span");
                 }
             }
         });

@@ -1,5 +1,5 @@
 
-(function($) {
+(function() {
   'use strict'
   const shareModal = $('#share-to-mastodon')
   const shareButton = shareModal.find('button')
@@ -16,4 +16,4 @@
   shareModal.on('submit', function() {
     shareModal.attr('action', shareModal.find("input[name='instance']").val() + '/share')
   })
-})(jQuery)
+})()

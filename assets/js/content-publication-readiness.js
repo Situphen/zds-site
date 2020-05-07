@@ -1,4 +1,4 @@
-(function($) {
+(function() {
   $('.readiness').on('click', function(e) {
     var url = $(e.target).data('url')
     var readiness = $(e.target).data('is-ready').toString() === 'true'
@@ -22,4 +22,4 @@
       }
     })
   })
-})(jQuery)
+})()

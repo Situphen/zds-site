@@ -2,7 +2,7 @@
    jQuery :tabbable and :focusable selectors plugin
    ========================================================================== */
 
-(function($) {
+(function() {
   'use strict'
 
   $.extend($.expr[':'], {
@@ -60,4 +60,4 @@
       }).length
     }
   }
-})(jQuery)
+})()

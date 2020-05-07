@@ -4,7 +4,7 @@
    Author: Alex-D / Alexandre Demode
    ========================================================================== */
 
-(function($) {
+(function() {
   'use strict'
 
   var buttonsSelector = '[type=submit], [type=reset]'
@@ -25,4 +25,4 @@
 
     if ($(this).hasClass('disabled')) { e.preventDefault() }
   })
-})(jQuery)
+})()

@@ -2,7 +2,7 @@
    Manage Karma buttons
    ========================================================================== */
 
-(function($) {
+(function() {
   'use strict'
 
   /**
@@ -280,4 +280,4 @@
   $(document).ready(function() {
     $('.topic-message').has('.message-karma').karma()
   })
-})(jQuery)
+})()

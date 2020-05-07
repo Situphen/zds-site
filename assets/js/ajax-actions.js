@@ -2,7 +2,7 @@
    Manage action button AJAX requests
    ========================================================================== */
 
-(function($) {
+(function() {
   'use strict'
 
   /**
@@ -35,7 +35,7 @@
   /**
    * Follow a topic
    */
-  $('.sidebar, .flexpage-title-tool .actions').on('click', "[data-ajax-input='follow-topic']", function(e) {
+  $('.sidebar, .flexpage-title-tool .actions [data-ajax-input="follow-topic"]').on('click', function(e) {
     var $act = $(this)
     var $form = $(this).parents('form:first')
     var $email = $(this).parents('li:first').next().find("[data-ajax-input='follow-topic-by-email']")
@@ -104,7 +104,7 @@
   /**
    * Be notified by email
    */
-  $('.sidebar, .flexpage-title-tool .actions').on('click', "[data-ajax-input='follow-topic-by-email']", function(e) {
+  $('.sidebar, .flexpage-title-tool .actions [data-ajax-input="follow-topic-by-email"]').on('click', function(e) {
     var $act = $(this)
     var $follow = $(this).parents('li:first').prev().find("[data-ajax-input='follow-topic']")
     var $form = $(this).parents('form:first')
@@ -162,7 +162,7 @@
   /**
    * Featured request
    */
-  $('.sidebar').on('click', "[data-ajax-input='request-featured']", function(e) {
+  $('.sidebar [data-ajax-input="request-featured"]').on('click', function(e) {
     var $act = $(this)
     var $form = $(this).parents('form:first')
     var $requestText = $act.find('#request_text')
@@ -197,7 +197,7 @@
   /**
    * Mark a topic solved
    */
-  $('.sidebar').on('click', "[data-ajax-input='solve-topic']", function(e) {
+  $('.sidebar [data-ajax-input="solve-topic"]').on('click', function(e) {
     var $act = $(this)
     var $form = $(this).parents('form:first')
 
@@ -238,7 +238,7 @@
   /**
    * Mobile action
    */
-  $('#mobile-menu').on('click', '[data-ajax-input]', function(e) {
+  $('#mobile-menu [data-ajax-input]').on('click', function(e) {
     var dataAjaxInput = $(this).data('ajax-input')
     var $button = $('.sidebar').find("button[data-ajax-input='" + dataAjaxInput + "']")
 
@@ -293,7 +293,7 @@
   /**
    * Cite a message
    */
-  $('.message-actions').on('click', "[data-ajax-input='cite-message']", function(e) {
+  $('.message-actions [data-ajax-input="cite-message"]').on('click', function(e) {
     e.stopPropagation()
     e.preventDefault()
 
@@ -324,7 +324,7 @@
   /*
      * Mark a message useful
      */
-  $('.topic-message').on('click', "[data-ajax-input='mark-message-as-useful']", function(e) {
+  $('.topic-message [data-ajax-input="mark-message-as-useful"]').on('click', function(e) {
     var $button = $(this)
     var $form = $button.parents('form:first')
     var $message = $form.parents('article')
@@ -348,4 +348,4 @@
     e.stopPropagation()
     e.preventDefault()
   })
-})(jQuery)
+})()

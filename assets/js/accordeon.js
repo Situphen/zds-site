@@ -4,17 +4,17 @@
    Author: Alex-D
    ========================================================================== */
 
-(function($) {
+(function() {
   'use strict'
 
   function accordeon($elem) {
-    $('h4 + ul, h4 + ol', $elem).each(function() {
+    $('h4 + ul, h4 + ol').children($elem).each(function() {
       if (!$(this).hasClass('unfolded')) {
         if ($('.current', $(this)).length === 0) { $(this).hide() }
       }
     })
 
-    $('h4', $elem).click(function(e) {
+    $('h4').children($elem).click(function(e) {
       $('+ ul, + ol', $(this)).slideToggle(100)
 
       e.preventDefault()
@@ -22,7 +22,7 @@
     })
   }
 
-  $(document).ready(function() {
+  document.addEventListener("DOMContentLoaded", function() {
     $('.main .sidebar.accordeon, .main .sidebar .accordeon')
       .each(function() {
         accordeon($(this))
@@ -31,4 +31,4 @@
         accordeon($(e.target))
       })
   })
-})(jQuery)
+})()

@@ -1,4 +1,4 @@
-(function($) {
+(function() {
   $('.featured-request').on('click', '.unpick-action', function() {
     var $button = $(this)
     var $row = $button.parent().parent()
@@ -28,4 +28,4 @@
       }
     })
   })
-})(jQuery)
+})()
