@@ -17,7 +17,8 @@ jobs:
     #    python-version: [3.6, 3.7, 3.8]
 
     steps:
-    - uses: actions/checkout@v2
+    - name: Checkout
+      uses: actions/checkout@v2
 
     - name: Configure sysctl limits for ElasticSearch
       run: |
@@ -27,7 +28,7 @@ jobs:
         sudo sysctl -w vm.max_map_count=262144
 
     - name: Install
-      run: ./scripts/install_zds.sh --answer-yes --detect-os-version --github-actions-output +full
+      run: ./scripts/install_zds.sh --answer-yes --detect-os-version --ci-output +full
 
     - name: Run Tests
       run: |
