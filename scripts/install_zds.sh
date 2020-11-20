@@ -454,10 +454,10 @@ fi
 
 
 # install back
-if  ! $(_in "-back" $@) && ( $(_in "+back" $@) || $(_in "+base" $@) || $(_in "+full" $@) ); then
+if  ! _in "-back" "$@" && ( _in "+back" "$@" || _in "+base" "$@" || _in "+full" "$@" ); then
     zds_fold_start "[+back] Install backend dependencies"
 
-    if $(_in "+prod" $@); then
+    if _in "+prod" "$@"; then
         make install-back-with-prod; exVal=$?
     else
         make install-back; exVal=$?
@@ -470,7 +470,7 @@ if  ! $(_in "-back" $@) && ( $(_in "+back" $@) || $(_in "+base" $@) || $(_in "+f
 
     zds_fold_end
 
-    if ! $(_in "-back-migrate-db" $@); then
+    if ! _in "-back-migrate-db" "$@"; then
         zds_fold_start "[+back] Migrate database"
 
         make migrate-db; exVal=$? # migration are required for the instance to run properly anyway

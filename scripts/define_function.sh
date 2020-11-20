@@ -41,7 +41,7 @@ function zds_fold_start {
 
 function zds_fold_end {
     if [[ $ZDS_SHOW_CI_FOLD == 1 ]] && [[ $zds_fold_current =~ "" ]]; then
-        zds_travis_fold "::endgroup::"
+        echo "::endgroup::"
         zds_fold_current=""
     fi
 }
