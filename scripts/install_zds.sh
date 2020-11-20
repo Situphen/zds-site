@@ -48,19 +48,16 @@ source $LOCAL_DIR/define_variable.sh
 source $LOCAL_DIR/define_function.sh
 
 
-# enable travis fold
-ZDS_SHOW_TRAVIS_FOLD=0
-if $(_in "--travis-output" $@); then
-    ZDS_SHOW_TRAVIS_FOLD=1
+# enable CI fold
+ZDS_SHOW_CI_FOLD=0
+if $(_in "--ci-output" $@); then
+    ZDS_SHOW_CI_FOLD=1
     export DJANGO_SETTINGS_MODULE="zds.settings.travis_fixture"
 fi
 
-zds_fold_category "install"
-
-
 # Install packages
 if  ! $(_in "-packages" $@) && ( $(_in "+packages" $@) || $(_in "+base" $@) || $(_in "+full" $@) ); then
-    zds_fold_start "packages" "* [+packages] installing packages (this subcommand will be run as super-user)"
+    zds_fold_start "[+packages] Install packages (this subcommand will be run as super-user)"
 
     if $(_in "--detect-os-version" $@); then
         version=$(cat /proc/version)
@@ -157,7 +154,7 @@ fi
 
 # virtualenv
 if  ! $(_in "-virtualenv" $@) && ( $(_in "+virtualenv" $@) || $(_in "+base" $@) || $(_in "+full" $@) ); then
-    zds_fold_start "virtualenv" "* Create virtualenv"
+    zds_fold_start "[+virtualenv] Create virtualenv"
 
     if [ ! -f $ZDS_VENV/bin/activate ]; then
         if [ -d $ZDS_VENV ]; then
@@ -204,7 +201,7 @@ fi
 
 # nvm node & yarn
 if  ! $(_in "-node" $@) && ( $(_in "+node" $@) || $(_in "+base" $@) || $(_in "+full" $@) ); then
-    zds_fold_start "node" "* [+node] installing nvm (v$ZDS_NVM_VERSION) & node (v$ZDS_NODE_VERSION) & yarn"
+    zds_fold_start "[+node] Install nvm (v$ZDS_NVM_VERSION) & node (v$ZDS_NODE_VERSION) & yarn"
 
     wget -qO- https://raw.githubusercontent.com/creationix/nvm/v${ZDS_NVM_VERSION}/install.sh | bash
     if [[ $? == 0 ]]; then
@@ -233,7 +230,7 @@ fi
 
 # virtualenv activation
 if ! $(_in "--force-skip-activating" $@) && [[ ( $VIRTUAL_ENV == "" || $(realpath $VIRTUAL_ENV) != $(realpath $ZDS_VENV) ) ]]; then
-    zds_fold_start "virtualenv" "* Load virtualenv"
+    zds_fold_start "Load virtualenv"
 
     print_info "* activating venv \`$ZDS_VENV\`"
 
@@ -275,7 +272,7 @@ export ZDS_ENV=$(realpath $ZDS_VENV)
 
 # local jdk 
 if  ! $(_in "-jdk-local" $@) && ( $(_in "+jdk-local" $@) || $(_in "+full" $@) ); then
-    zds_fold_start "jdk" "* [+jdk-local] installing a local version of JDK (v$ZDS_JDK_VERSION)"
+    zds_fold_start "[+jdk-local] Install a local version of the JDK (v$ZDS_JDK_VERSION)"
 
     mkdir -p $ZDS_VENV/lib/
     cd $ZDS_VENV/lib/
@@ -323,7 +320,7 @@ fi
 
 # local elasticsearch
 if  ! $(_in "-elastic-local" $@) && ( $(_in "+elastic-local" $@) || $(_in "+full" $@) ); then
-    zds_fold_start "elasticsearch" "* [+elastic-local] installing a local version of elasticsearch (v$ZDS_ELASTIC_VERSION)"
+    zds_fold_start "[+elastic-local] Install a local version of Elastic Search (v$ZDS_ELASTIC_VERSION)"
 
     mkdir -p .local
     cd .local
@@ -359,7 +356,7 @@ fi
 
 # local texlive
 if  ! $(_in "-tex-local" $@) && ( $(_in "+tex-local" $@) || $(_in "+full" $@) ); then
-    zds_fold_start "texlive" "* [+tex-local] install texlive"
+    zds_fold_start "[+tex-local] Install TeXLive"
 
     mkdir -p .local
     cd .local
@@ -426,7 +423,7 @@ fi
 
 # latex-template in TEXMFHOME.
 if  ! $(_in "-latex-template" $@) && ( $(_in "+latex-template" $@) || $(_in "+full" $@) ); then
-    zds_fold_start "latex-template" "* [+latex-template] install latex-template (from $ZDS_LATEX_REPO)"
+    zds_fold_start "[+latex-template] Install latex-template (from $ZDS_LATEX_REPO)"
 
     if [[ $(which kpsewhich) == "" ]]; then # no texlive ?
         print_error "!! Cannot find kpsewhich, do you have texlive?"
@@ -458,7 +455,7 @@ fi
 
 # install back
 if  ! $(_in "-back" $@) && ( $(_in "+back" $@) || $(_in "+base" $@) || $(_in "+full" $@) ); then
-    zds_fold_start "back" "* [+back] install back dependencies & migration"
+    zds_fold_start "[+back] Install backend dependencies"
 
     if $(_in "+prod" $@); then
         make install-back-with-prod; exVal=$?
@@ -471,22 +468,26 @@ if  ! $(_in "-back" $@) && ( $(_in "+back" $@) || $(_in "+base" $@) || $(_in "+f
         exit 1
     fi
 
+    zds_fold_end
+
     if ! $(_in "-back-migrate-db" $@); then
+        zds_fold_start "[+back] Migrate database"
+
         make migrate-db; exVal=$? # migration are required for the instance to run properly anyway
 
         if [[ $exVal != 0 ]]; then
             print_error "!! Cannot migrate database after the back installation (use \`-back\` to skip)"
             exit 1
         fi
-    fi
 
-    zds_fold_end
+        zds_fold_end
+    fi
 fi
 
 
 # install front
 if  ! $(_in "-front" $@) && ( $(_in "+front" $@) || $(_in "+base" $@) || $(_in "+full" $@) ); then
-    zds_fold_start "front" "* [+front] install front dependencies & build front"
+    zds_fold_start "[+front] Install front dependencies"
 
     if [ -d node_modules ]; then # delete previous modules
         rm -r node_modules
@@ -498,6 +499,9 @@ if  ! $(_in "-front" $@) && ( $(_in "+front" $@) || $(_in "+base" $@) || $(_in "
         print_error "!! Cannot install-front (use \`-front\` to skip)"
         exit 1
     fi
+
+    zds_fold_end
+    zds_fold_start "[+front] Build front"
 
     make build-front; exVal=$?
 
@@ -512,7 +516,7 @@ fi
 
 # zmd
 if  ! $(_in "-zmd" $@) && ( $(_in "+zmd" $@) || $(_in "+base" $@) || $(_in "+full" $@) ); then
-    zds_fold_start "zmd" "* [+zmd] install zmarkdown dependencies"
+    zds_fold_start "[+zmd] Install zmarkdown dependencies"
 
     make zmd-install; exVal=$?
 
@@ -527,7 +531,7 @@ fi
 
 # fixtures
 if  ! $(_in "-data" $@) && ( $(_in "+data" $@) || $(_in "+base" $@) || $(_in "+full" $@) ); then
-    zds_fold_start "fixtures" "* [+data] fixtures"
+    zds_fold_start "[+data] Generate fixtures"
 
     npm run server --prefix zmd/node_modules/zmarkdown -- --silent; exVal=$?
 

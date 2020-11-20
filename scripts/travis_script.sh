@@ -1,6 +1,6 @@
 #!/bin/bash
 
-source ./scripts/define_function.sh --travis-output
+source ./scripts/define_function.sh --github-actions-output
 
 zds_fold_category "script"
 
