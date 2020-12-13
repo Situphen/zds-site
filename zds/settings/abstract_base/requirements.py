@@ -12,7 +12,6 @@ social_auth_config = config.get("social_auth", {})
 
 SOCIAL_AUTH_RAISE_EXCEPTIONS = False
 
-SOCIAL_AUTH_GOOGLE_OAUTH2_USE_DEPRECATED_API = True
 SOCIAL_AUTH_FACEBOOK_SCOPE = ["email"]
 
 SOCIAL_AUTH_PIPELINE = (
