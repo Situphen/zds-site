@@ -53,10 +53,10 @@
             <div class="content-col-2">
                 <h2>{% trans "Connexion via réseaux sociaux" %}</h2>
 
-                <a href="{% url "social:begin" "facebook" %}" class="btn ico-after facebook light btn-facebook btn-holder">
+                <a href="{% url 'social:begin' 'facebook' %}?next={{ next_page }}" class="btn ico-after facebook light btn-facebook btn-holder">
                     {% trans "Connexion via Facebook" %}
                 </a>
-                <a href="{% url "social:begin" "google-oauth2" %}" class="btn ico-after google-plus light btn-google-plus btn-holder">
+                <a href="{% url 'social:begin' 'google-oauth2' %}?next={{ next_page }}" class="btn ico-after google-plus light btn-google-plus btn-holder">
                     {% trans "Connexion via Google+" %}
                 </a>
             </div>

@@ -1166,7 +1166,7 @@ def login_view(request):
         form.helper.form_action += "?next=" + next_page
     csrf_tk["error"] = error
     csrf_tk["form"] = form
-    return render(request, "member/login.html", {"form": form, "csrf_tk": csrf_tk})
+    return render(request, "member/login.html", {"form": form, "csrf_tk": csrf_tk, "next_page": next_page})
 
 
 @login_required
