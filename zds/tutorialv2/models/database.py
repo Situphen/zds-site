@@ -179,6 +179,8 @@ class PublishableContent(models.Model, TemplatableContentModelMixin):
         if update_date:
             self.update_date = datetime.now()
         super().save(*args, **kwargs)
+        if hasattr(self, "_authors"):
+            self._authors= list(self.authors.all())
 
     @property
     def redacting_authors(self):
@@ -707,6 +709,11 @@ class PublishedContent(AbstractESDjangoIndexable, TemplatableContentModelMixin, 
     sizes = models.CharField("Tailles des fichiers téléchargeables", max_length=512, default="{}")
     _meta_description = None
     _manifest = None
+
+    def save(self, *args, **kwargs):
+        super().save(*args, **kwargs)
+        if hasattr(self, "_authors"):
+            self._authors = list(self.authors.all())
 
     @staticmethod
     def get_slug_from_file_path(file_path):
