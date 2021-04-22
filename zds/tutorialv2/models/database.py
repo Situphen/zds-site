@@ -580,6 +580,12 @@ class PublishableContent(models.Model, TemplatableContentModelMixin):
         return self.first_note()
 
     def __user_last_note(self, user):
+        """
+        Get last note posted by a user
+        :param user: user to test
+        :type user: django.contrib.auth.models.User
+        :return: ``None`` if user has not posted yet on this content, the last note otherwise
+        """
         if not hasattr(self, "_last_note_map"):
             setattr(self, "_last_note_map", {})
         note_map = getattr(self, "_last_note_map")

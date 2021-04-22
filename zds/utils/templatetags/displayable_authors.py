@@ -14,6 +14,6 @@ def displayable_authors(content, online):
     :return:
     :rtype: iterable[zds.members.models.User]
     """
-    if hasattr(content, "public_authors"):
+    if online:
         return content.public_version.public_authors
     return content.redacting_authors
