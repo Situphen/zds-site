@@ -180,7 +180,7 @@ class PublishableContent(models.Model, TemplatableContentModelMixin):
             self.update_date = datetime.now()
         super().save(*args, **kwargs)
         if hasattr(self, "_authors"):
-            self._authors = list(self.authors.all())
+            delattr(self, "_authors")
 
     @property
     def redacting_authors(self):
