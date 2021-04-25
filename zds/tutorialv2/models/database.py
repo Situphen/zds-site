@@ -713,7 +713,7 @@ class PublishedContent(AbstractESDjangoIndexable, TemplatableContentModelMixin, 
     def save(self, *args, **kwargs):
         super().save(*args, **kwargs)
         if hasattr(self, "_authors"):
-            self._authors = list(self.authors.all())
+            delattr(self, "_authors")
 
     @staticmethod
     def get_slug_from_file_path(file_path):
