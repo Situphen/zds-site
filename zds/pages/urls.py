@@ -13,11 +13,13 @@ from zds.pages.views import (
     eula,
     index,
     restore_edit,
+    technologies,
 )
 
 urlpatterns = [
     # single pages
-    path("technologies/", about, name="pages-technologies"),
+    path("a-propos/", about, name="pages-about"),
+    path("technologies/", technologies, name="pages-technologies"),
     path("association/", association, name="pages-association"),
     path("contact/", ContactView.as_view(), name="pages-contact"),
     path("accessibilite/", accessibility, name="pages-accessibility"),
