@@ -42,8 +42,9 @@
             </p>
             <p>
                 {% blocktrans with plural=contents_count|pluralize_fr %}
-                    Nous vous proposons actuellement {{ contents_count }} publication{{ plural }} dans de nombreux
-                    domaines, allant de l’informatique aux sciences sociales, en passant par les sciences naturelles…
+                    Nous vous proposons actuellement <strong>{{ contents_count }} publication{{ plural }}</strong>
+                    dans de nombreux domaines, allant de l’informatique aux sciences sociales, en passant par les
+                    sciences naturelles…
                 {% endblocktrans %}
             </p>
             <p>
@@ -53,16 +54,14 @@
             </p>
             <p>
                 {% blocktrans %}
-                    Nous privilégions la libre diffusion des connaissances et des outils : la plateforme est sous
-                    licence libre
-                    et open source, et nous suggérons (sans pour autant imposer) de publier sous de telles licences.
+                    Nous privilégions <strong>la libre diffusion des connaissances et des outils</strong> : la plateforme
+                    est sous licence libre et open source, et nous suggérons (sans pour autant imposer) de publier sous
+                    de telles licences.
                 {% endblocktrans %}
             </p>
             <p>
-                {% url "pages-association" as asso_url %}
                 {% blocktrans %}
-                    {{ site_name }} est géré par
-                    <a href="{{ asso_url }}">une association à but non lucratif loi 1901</a>
+                    {{ site_name }} est géré par <strong>une association à but non lucratif</strong> loi 1901
                     basée en France, afin que tout cela reste sous une gouvernance non-commerciale.
                 {% endblocktrans %}
             </p>
@@ -95,7 +94,63 @@
             </figure>
         </aside>
 
-        <article class="about-association">
+        <article class="about-legal" id="mentions-légales">
+            <header>
+                <h2>{% trans "Mentions légales" %}</h2>
+            </header>
+
+            <div>
+                <p>
+                    {% url "pages-contact" as contact_url %}
+                    {% blocktrans with asso_mail=app.site.association.email %}
+                        Ce site web est édité par l'association Zeste de Savoir, domiciliée à Levallois-Perret
+                        (Hauts-de-Seine, France) et parue au Journal Officiel le 19 avril 2014. La direction de la
+                        publication est assurée par son ou sa présidente, que vous pouvez retrouver
+                        <a href="{{ contact_url }}">sur la page contact du site</a>. Vous pouvez joindre l’association
+                        via l’adresse courriel suivante : <a href="mailto:{{ asso_mail }}">{{ asso_mail }}</a>.
+                    {% endblocktrans %}
+                </p>
+                <p>
+                    {% blocktrans %}
+                        Le site est hébergé par GANDI SAS, dont le siège social est situé 63-65 boulevard Masséna, 75013 Paris, France.
+                    {% endblocktrans %}
+                </p>
+                <hr>
+                {% if app.site.licenses %}
+                    {% if app.site.licenses.source %}
+                        <p>
+                            {% blocktrans with src_url_license=app.site.licenses.source.url_license src_code=app.site.licenses.source.code provider_url=app.site.licenses.source.provider_url provider_name=app.site.licenses.source.provider_name %}
+                                Le code source de {{ site_name }} est sous licence
+                                <a href="{{ src_url_license }}">{{ src_code }}</a>, et provient en partie de
+                                <a href="{{ provider_url }}">{{ provider_name }}</a>. Il a été écrit par
+                                <a href="{{ default_repository_url }}/graphs/contributors">plusieurs contributeurs et
+                                    contributrices.</a>
+                            {% endblocktrans %}
+                        </p>
+                    {% endif %}
+                    {% if app.site.licenses.logo %}
+                        <p>
+                            {% blocktrans with author_logo=app.site.licenses.logo.author url_license=app.site.licenses.logo.url_license url_image=app.site.licenses.logo.url_image logo_title=app.site.licenses.logo.title logo_desc=app.site.licenses.logo.description %}
+                                Le logo de {{ site_name }} a été créé par {{ author_logo }} et est sous
+                                <a rel="license" href="{{ url_license }}">
+                                    <img alt="{{ logo_title }}" src="{{ url_image }}">
+                                    {{ logo_desc }}
+                                </a>
+                            {% endblocktrans %}
+                        </p>
+                    {% endif %}
+
+                    <p>
+                        {% blocktrans %}
+                            L'icône plume a été dessinée par <a href="https://fontawesome.com">FontAwesome</a>,
+                            <a href="https://fontawesome.com/license/free">sous licence CC BY</a>.
+                        {% endblocktrans %}
+                    </p>
+                {% endif %}
+            </div>
+        </article>
+
+        <article class="about-association" id="association">
             <header>
                 <h2>{% trans "L’association" %}</h2>
                 <p>

@@ -292,8 +292,7 @@ section#about-page
 
 
   // The legal block.
-  > article.about-legal,
-  > article.about-association
+  > article.about-legal
     grid-row: 4
     grid-column: 1 / 4
 
@@ -332,6 +331,35 @@ section#about-page
     // (Default is $grey-200.)
     hr
       border-color: $grey-000
+
+
+  // The association block.
+  > article.about-association
+    grid-row: 5
+    grid-column: 1 / 4
+
+    @extend %about-two-columns
+
+    // Narrower title column of only one third.
+    grid-template-columns: repeat(3, 1fr)
+    grid-gap: $length-16
+
+    > header
+      grid-column: 1
+
+    > div
+      grid-column: 2 / 4
+
+    p
+      &, a
+        font-size: $font-size-9
+
+      &:first-child
+        margin-top: 0
+
+      &:last-child
+        margin-bottom: 0
+
 
   &.is-technologies-page
     display: block  // no grid needed

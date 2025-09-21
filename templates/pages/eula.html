@@ -37,24 +37,11 @@
     </p>
 
     <h3>2. Mentions légales</h3>
-    {% if app.site.association %}
-        <p>
-            L’édition du site {{ app.site.dns }} est assurée par l’association française de loi 1901 {{ app.site.literal_name }}, déclarée à la préfecture de Vendée et parue au Journal Officiel le 19 avril 2014.
-        </p>
-        <p>
-            Vous pouvez joindre l’association via l’adresse courriel : <a href="mailto:{{ app.site.association.email }}">{{ app.site.association.email }}</a>.
-        </p>
-    {% endif %}
-    {% if app.site.hosting %}
-        <p>
-            Le site est hébergé par {{ app.site.hosting.name }} dont le siège social est situé {{ app.site.hosting.address }}.
-        </p>
-    {% endif %}
-    {% if app.cnil %}
-        <p>
-            Le site est enregistré auprès de la CNIL sous le numéro {{ app.site.cnil }}.
-        </p>
-    {% endif %}
+    {% url "pages-about" as about_url %}
+    <p>
+        Les mentions légales sont disponibles sur <a href="{{ about_url }}">la page À propos</a>.
+    </p>
+
     <h3>3. Définitions</h3>
     <ul>
         <li>Utilisateur : ce terme désigne toute personne qui utilise le site ou l’un des services proposés par le site.</li>

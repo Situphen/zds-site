@@ -64,7 +64,7 @@ ZDS_APP = {
         "abbr": "zds",
         "url": "https://zestedesavoir.com",
         "dns": "zestedesavoir.com",
-        "email_contact": "zestedesavoir@gmail.com",
+        "email_contact": "association@zestedesavoir.com",
         "email_asso_accessibility": "association+accessibilite@zestedesavoir.com",
         "email_tech_accessibility": "technique+accessibilite@zestedesavoir.com",
         "email_noreply": "noreply@zestedesavoir.com",
