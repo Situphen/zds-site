@@ -299,7 +299,7 @@ class ImageListAPITest(APITestCase):
         title = "un super titre pour une image svg"
         legend = "une super legende aussi"
 
-        response = self.client.post(
+        self.client.post(
             reverse("api:gallery:list-images", kwargs={"pk_gallery": self.gallery.pk}),
             {
                 "title": title,

@@ -88,7 +88,7 @@ def publish_content(db_object, versioned, is_major_update=True):
 
     # 1. markdown file (base for the others) :
     # If we come from a command line, we need to activate i18n, to have the date in the french language.
-    cur_language = translation.get_language()
+    translation.get_language()
     altered_version.pubdate = datetime.now()
 
     md_file_path = base_name + ".md"

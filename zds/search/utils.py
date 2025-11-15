@@ -36,7 +36,7 @@ def clean_html(text):
     :rtype: str
     """
     result = ""
-    if text != None:
+    if text is not None:
         soup = BeautifulSoup(text, "html.parser")
         formatted_html = soup.prettify()
         result = re.sub(r"<[^>]*>", "", formatted_html).strip()

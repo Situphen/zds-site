@@ -4,9 +4,18 @@ from pathlib import Path
 import requests
 from packaging import version
 
-print_red = lambda x: print("\33[91m", x, "\33[0m")
-print_green = lambda x: print("\33[92m", x, "\33[0m")
-print_yellow = lambda x: print("\33[93m", x, "\33[0m")
+
+def print_red(x):
+    return print("\33[91m", x, "\33[0m")
+
+
+def print_green(x):
+    return print("\33[92m", x, "\33[0m")
+
+
+def print_yellow(x):
+    return print("\33[93m", x, "\33[0m")
+
 
 # Regex matching some_weird_package2[full]==4.3.2abcd
 regex = re.compile(r"^[a-zA-Z0-9_\-\[\]]+==[a-zA-Z0-9.]+")

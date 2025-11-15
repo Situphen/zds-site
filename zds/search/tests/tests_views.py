@@ -905,9 +905,9 @@ class ViewsTests(TutorialTestMixin, TestCase):
         self.assertContains(result, reverse("search:opensearch"))
 
     def test_apostrophe(self):
-        topic1 = TopicFactory(forum=self.forum, author=self.user, title="Parlons d'une harmonie qui sonne bien")
-        topic2 = TopicFactory(forum=self.forum, author=self.user, title="Voici l'harmonie qui sonne bien")
-        topic3 = TopicFactory(forum=self.forum, author=self.user, title="Rien à voir")
+        TopicFactory(forum=self.forum, author=self.user, title="Parlons d'une harmonie qui sonne bien")
+        TopicFactory(forum=self.forum, author=self.user, title="Voici l'harmonie qui sonne bien")
+        TopicFactory(forum=self.forum, author=self.user, title="Rien à voir")
 
         self._index_everything()
 
@@ -1021,10 +1021,10 @@ class ViewsTests(TutorialTestMixin, TestCase):
         text = "test"
 
         publishable_article1 = PublishedContentFactory(type="ARTICLE", title=f"{text} 1")
-        published_article1 = PublishedContent.objects.get(content_pk=publishable_article1.pk)
+        PublishedContent.objects.get(content_pk=publishable_article1.pk)
 
         publishable_article2 = PublishedContentFactory(type="ARTICLE", title=f"{text} 2")
-        published_article2 = PublishedContent.objects.get(content_pk=publishable_article2.pk)
+        PublishedContent.objects.get(content_pk=publishable_article2.pk)
 
         # Should not get a 500 if collections do not exist:
         self.manager.clear_index()
