@@ -3,7 +3,6 @@ from crispy_forms.helper import FormHelper
 from crispy_forms.layout import HTML, ButtonHolder, Div, Field, Hidden, Layout, Submit
 from django import forms
 from django.conf import settings
-from django.contrib.auth import authenticate
 from django.contrib.auth.forms import AuthenticationForm
 from django.contrib.auth.models import Group, User
 from django.core.exceptions import ValidationError

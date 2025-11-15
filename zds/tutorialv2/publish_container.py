@@ -4,11 +4,9 @@ import copy
 from os import makedirs, path
 from pathlib import Path
 
-import requests
 from django.template.loader import render_to_string
 from django.utils.translation import gettext_lazy as _
 
-from zds.tutorialv2.models.database import PublishableContent
 from zds.tutorialv2.models.versioned import Container, VersionedContent
 from zds.tutorialv2.utils import export_content
 from zds.utils.templatetags.emarkdown import emarkdown, render_markdown

@@ -8,7 +8,6 @@ from django.conf import settings
 from django.contrib.auth.models import Group, User
 from django.db import models
 from django.dispatch import receiver
-from django.shortcuts import get_object_or_404
 from django.template.loader import render_to_string
 from django.urls import reverse
 from django.utils.encoding import smart_str

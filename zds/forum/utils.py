@@ -9,7 +9,7 @@ from django.utils.translation import gettext as _
 from django.views.generic import CreateView
 from django.views.generic.detail import SingleObjectMixin
 
-from zds.forum.models import Forum, Post, Topic
+from zds.forum.models import Post, Topic
 from zds.member.utils import get_client_ip
 from zds.utils.misc import contains_utf8mb4, is_ajax
 from zds.utils.mixins import QuoteMixin

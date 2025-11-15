@@ -7,7 +7,6 @@ from django.urls import reverse
 from django.utils.translation import gettext_lazy as _
 from django.views.generic import DetailView, FormView, View
 
-from zds.forum.models import Topic
 from zds.tutorialv2.models.database import ContentRead, PublishableContent, PublishedContent
 from zds.tutorialv2.models.help_requests import HelpWriting
 from zds.tutorialv2.utils import mark_read

@@ -1,5 +1,4 @@
 from datetime import datetime, timedelta
-from hashlib import md5
 
 from django.conf import settings
 from django.contrib.auth.models import Group

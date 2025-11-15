@@ -14,7 +14,7 @@ from django.test import TestCase
 from django.urls import reverse
 
 from zds import json_handler
-from zds.forum.models import Post, Topic, TopicRead
+from zds.forum.models import Topic, TopicRead
 from zds.forum.tests.factories import ForumCategoryFactory, ForumFactory
 from zds.gallery.models import Gallery, Image, UserGallery
 from zds.gallery.tests.factories import UserGalleryFactory

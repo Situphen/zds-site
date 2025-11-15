@@ -10,7 +10,6 @@ from selenium.webdriver.common.action_chains import ActionChains
 from selenium.webdriver.common.by import By
 from selenium.webdriver.firefox.options import Options
 from selenium.webdriver.support import expected_conditions
-from selenium.webdriver.support import expected_conditions as ec
 from selenium.webdriver.support.ui import WebDriverWait
 
 from zds.member.tests.factories import ProfileFactory, StaffProfileFactory

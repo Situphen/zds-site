@@ -111,7 +111,7 @@ class AddAuthorView(LoggedWithReadWriteHability, SingleContentFormViewMixin):
         return super().form_valid(form)
 
     def notify_by_private_message(self, user, bot):
-        url_index = reverse(f"content:find-all", args=[user.username])
+        url_index = reverse("content:find-all", args=[user.username])
         send_mp(
             bot,
             [user],

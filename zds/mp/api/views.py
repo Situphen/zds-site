@@ -14,7 +14,7 @@ from rest_framework.generics import (
     RetrieveUpdateDestroyAPIView,
     get_object_or_404,
 )
-from rest_framework.permissions import IsAuthenticated, IsAuthenticatedOrReadOnly
+from rest_framework.permissions import IsAuthenticated
 from rest_framework.response import Response
 from rest_framework_extensions.cache.decorators import cache_response
 from rest_framework_extensions.etag.decorators import etag

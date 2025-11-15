@@ -1,6 +1,6 @@
 from django.db import migrations
 
-from zds.forum.models import Forum, Topic
+from zds.forum.models import Forum
 from zds.notification.models import NewTopicSubscription
 
 

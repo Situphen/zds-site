@@ -20,7 +20,7 @@ from zds.tutorialv2.tests.factories import (
     PublishedContentFactory,
 )
 from zds.utils.models import Tag
-from zds.utils.tests.factories import LicenceFactory, SubCategoryFactory
+from zds.utils.tests.factories import LicenceFactory
 
 
 @override_for_contents()

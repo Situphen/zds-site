@@ -1,8 +1,5 @@
-from django.conf import settings
-from django.contrib.auth.models import User
 from django.core.management.base import BaseCommand
 from django.db import transaction
-from django.shortcuts import get_object_or_404
 from django.utils.text import slugify
 
 from zds.member.utils import get_anonymous_account, get_bot_account, get_external_account

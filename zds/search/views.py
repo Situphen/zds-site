@@ -3,13 +3,11 @@ from datetime import datetime
 
 from django.conf import settings
 from django.contrib import messages
-from django.core.exceptions import PermissionDenied
 from django.http import JsonResponse
 from django.shortcuts import render
 from django.urls import reverse
 from django.utils.translation import gettext_lazy as _
 from django.views.generic.base import View
-from django.views.generic.detail import SingleObjectMixin
 
 from zds.forum.models import Post, Topic
 from zds.search.forms import SearchForm

@@ -1,5 +1,5 @@
 import easy_thumbnails.fields
-from django.db import migrations, models
+from django.db import migrations
 
 import zds.gallery.models
 

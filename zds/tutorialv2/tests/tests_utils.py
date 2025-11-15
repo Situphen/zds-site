@@ -16,7 +16,6 @@ from zds.tutorialv2.models.versioned import Container
 from zds.tutorialv2.publication_utils import (
     Publicator,
     PublicatorRegistry,
-    ZMarkdownRebberLatexPublicator,
     publish_content,
     unpublish_content,
 )

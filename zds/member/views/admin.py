@@ -1,7 +1,6 @@
-from django.conf import settings
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
-from django.contrib.auth.models import Group, User
+from django.contrib.auth.models import Group
 from django.core.exceptions import PermissionDenied
 from django.shortcuts import get_object_or_404, redirect, render
 from django.utils.text import format_lazy

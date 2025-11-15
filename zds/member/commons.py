@@ -4,7 +4,6 @@ from datetime import datetime, timedelta
 from django.conf import settings
 from django.contrib.auth.models import User
 from django.core.mail import EmailMultiAlternatives
-from django.shortcuts import get_object_or_404
 from django.template.defaultfilters import pluralize
 from django.template.loader import render_to_string
 from django.utils.translation import gettext_lazy as _

@@ -1,5 +1,3 @@
-import contextlib
-
 import factory
 
 from zds.gallery.models import Gallery, Image, UserGallery

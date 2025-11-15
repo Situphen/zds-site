@@ -1,6 +1,4 @@
 from django.conf import settings
-from django.contrib.auth.models import User
-from django.shortcuts import get_object_or_404
 from django.test import TestCase
 from django.urls import reverse
 from rest_framework import status

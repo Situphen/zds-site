@@ -1,9 +1,7 @@
-import contextlib
 from pathlib import Path
 
 from django.db.models.query import prefetch_related_objects
 from django.http import Http404
-from django.utils import translation
 from django.utils.translation import gettext as _
 from rest_framework import status
 from rest_framework.fields import empty

@@ -117,17 +117,17 @@ class AddSuggestionView(LoggedWithReadWriteHability, PermissionRequiredMixin, Si
                 elif suggestion.pk == publication.pk:
                     messages.error(
                         self.request,
-                        _(f"Vous ne pouvez pas suggérer la publication pour elle-même."),
+                        _("Vous ne pouvez pas suggérer la publication pour elle-même."),
                     )
                 elif suggestion.is_opinion and suggestion.sha_picked != suggestion.sha_public:
                     messages.error(
                         self.request,
-                        _(f"Vous ne pouvez pas suggérer un billet qui n'a pas été mis en avant."),
+                        _("Vous ne pouvez pas suggérer un billet qui n'a pas été mis en avant."),
                     )
                 elif not suggestion.sha_public:
                     messages.error(
                         self.request,
-                        _(f"Vous ne pouvez pas suggérer une publication non publique."),
+                        _("Vous ne pouvez pas suggérer une publication non publique."),
                     )
                 else:
                     obj_suggestion = ContentSuggestion(publication=publication, suggestion=suggestion)

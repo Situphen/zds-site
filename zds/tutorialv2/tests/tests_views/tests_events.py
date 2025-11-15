@@ -2,16 +2,13 @@ from django.conf import settings
 from django.test import TestCase
 from django.urls import reverse
 
-from zds.gallery.tests.factories import UserGalleryFactory
 from zds.member.tests.factories import ProfileFactory, StaffProfileFactory, UserFactory
-from zds.tutorialv2.models.database import PublishedContent
 from zds.tutorialv2.tests import TutorialTestMixin, override_for_contents
 from zds.tutorialv2.tests.factories import (
     ContentContributionRoleFactory,
     PublishableContentFactory,
     PublishedContentFactory,
 )
-from zds.utils.tests.factories import LicenceFactory, SubCategoryFactory
 
 
 @override_for_contents()

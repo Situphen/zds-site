@@ -7,7 +7,6 @@ from django.contrib.auth import logout
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
 from django.core.mail import EmailMultiAlternatives
-from django.db.models import Q
 from django.shortcuts import get_object_or_404, redirect, render
 from django.template.loader import render_to_string
 from django.urls import reverse
@@ -20,7 +19,7 @@ from zds.member.commons import ProfileCreate, TokenGenerator
 from zds.member.decorator import BlockedIPMixin
 from zds.member.forms import LoginForm, RegisterForm, UnregisterForm, UsernameAndEmailForm
 from zds.member.models import NewEmailProvider, Profile, TokenRegister
-from zds.member.utils import get_anonymous_account, get_bot_account, get_client_ip
+from zds.member.utils import get_bot_account, get_client_ip
 from zds.member.utils import unregister as do_unregister
 from zds.mp.utils import send_mp
 from zds.utils.models import get_hat_from_settings

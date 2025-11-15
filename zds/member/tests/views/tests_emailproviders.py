@@ -1,10 +1,10 @@
 from django.conf import settings
-from django.contrib.auth.models import Group, User
+from django.contrib.auth.models import Group
 from django.test import TestCase
 from django.urls import reverse
 
 from zds.forum.tests.factories import ForumCategoryFactory, ForumFactory
-from zds.member.models import BannedEmailProvider, NewEmailProvider, TokenRegister
+from zds.member.models import BannedEmailProvider, NewEmailProvider
 from zds.member.tests.factories import ProfileFactory, StaffProfileFactory, UserFactory
 
 

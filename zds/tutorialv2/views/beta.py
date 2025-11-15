@@ -1,5 +1,4 @@
 from django.conf import settings
-from django.contrib.auth.models import User
 from django.core.exceptions import PermissionDenied
 from django.db import transaction
 from django.shortcuts import get_object_or_404

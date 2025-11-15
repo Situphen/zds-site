@@ -122,7 +122,7 @@ class MatomoMiddleware:
                 else:
                     self.matomo_track(request)
             except Exception:
-                logger.exception(f"Something failed with Matomo tracking system.")
+                logger.exception("Something failed with Matomo tracking system.")
 
         return response
 

@@ -5,7 +5,7 @@ from pathlib import Path
 from django.core.management import BaseCommand
 
 from zds.tutorialv2.models.database import PublicationEvent
-from zds.tutorialv2.publication_utils import FailureDuringPublication, PublicatorRegistry
+from zds.tutorialv2.publication_utils import PublicatorRegistry
 
 logger = logging.getLogger(__name__)
 

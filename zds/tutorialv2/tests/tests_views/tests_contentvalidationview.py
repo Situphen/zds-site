@@ -3,7 +3,7 @@ from django.urls import reverse
 
 from zds.member.tests.factories import ProfileFactory, StaffProfileFactory
 from zds.tutorialv2.tests import TutorialTestMixin, override_for_contents
-from zds.tutorialv2.tests.factories import PublishableContentFactory, ValidationFactory
+from zds.tutorialv2.tests.factories import PublishableContentFactory
 from zds.tutorialv2.tests.utils import request_validation
 
 

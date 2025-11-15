@@ -11,4 +11,4 @@ class Command(BaseCommand):
     def handle(self, *args, **options):
         one_year_ago = datetime.now() - timedelta(days=365)
         Comment.objects.filter(pubdate__lte=one_year_ago).exclude(ip_address="").update(ip_address="")
-        self.stdout.write(self.style.SUCCESS(f"Successfully removed IP addresses that are more than one year old!"))
+        self.stdout.write(self.style.SUCCESS("Successfully removed IP addresses that are more than one year old!"))
