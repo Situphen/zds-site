@@ -171,7 +171,7 @@ class ContentStatisticsView(SingleOnlineContentDetailViewMixin, FormView):
             cumul["total"] += len(infos_stat)
             for info_stat in infos_stat:
                 for key, val in info_stat.items():
-                    if type(val) == str:
+                    if type(val) is str:
                         continue
                     if key in cumul:
                         cumul[key] += int(val)

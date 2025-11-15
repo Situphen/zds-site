@@ -38,7 +38,7 @@ class Command(BaseCommand):
             else:
                 try:
                     self.run()
-                except:
+                except Exception:
                     logger.exception("Exception during one publication_watchdog run.")
 
     def run(self):
@@ -63,7 +63,7 @@ class Command(BaseCommand):
 
                 publicator = PublicatorRegistry.get(publication_event.format_requested)
                 publicator.publish(md_file_path, base_name)
-            except:
+            except Exception:
                 # Update and save the publication state before logging, in case
                 # content.title() would raise an exception (it already used to
                 # happen!).

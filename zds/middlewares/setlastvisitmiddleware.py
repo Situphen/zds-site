@@ -19,7 +19,7 @@ class SetLastVisitMiddleware:
         try:
             if request.user.is_authenticated:
                 user = request.user
-        except:
+        except Exception:
             pass
 
         if user:

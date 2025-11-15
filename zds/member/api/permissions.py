@@ -91,7 +91,7 @@ class CanReadAndWriteNowOrReadOnly(permissions.BasePermission):
 
         try:
             profile = request.user.profile
-        except:
+        except Exception:
             # The user is a visitor
             profile = None
 

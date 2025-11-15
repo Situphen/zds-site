@@ -83,7 +83,7 @@ def settings_mini_profile(request, user_name):
 
             try:
                 profile.save()
-            except:
+            except Exception:
                 messages.error(request, _("Une erreur est survenue."))
                 return redirect(reverse("member-settings-mini-profile"))
 

@@ -89,7 +89,7 @@ def _get_version():
 def sentry_before_send(event: Event, hint: Hint) -> Event:
     # Do not log KeyboardInterrupt exceptions: they can only be triggered from
     # manage.py commands in an interactive shell, intentionally by the user.
-    if hint.get("exc_info", [None])[0] == KeyboardInterrupt:
+    if hint.get("exc_info", [None])[0] is KeyboardInterrupt:
         return None
 
     return event

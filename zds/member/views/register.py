@@ -247,6 +247,6 @@ def generate_token_account(request):
     msg.attach_alternative(message_html, "text/html")
     try:
         msg.send()
-    except:
+    except Exception:
         msg = None
     return render(request, "member/register/success.html", {})

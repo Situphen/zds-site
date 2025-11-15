@@ -7,3 +7,16 @@ from .content import (
     OpinionOnlineView,
     TutorialOnlineView,
 )
+
+__all__ = [
+    "ContainerBetaView",
+    "ContainerDraftView",
+    "ContainerOnlineView",
+    "ContainerVersionView",
+    "ArticleOnlineView",
+    "ContentBetaView",
+    "ContentDraftView",
+    "ContentVersionView",
+    "OpinionOnlineView",
+    "TutorialOnlineView",
+]

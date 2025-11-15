@@ -15,7 +15,7 @@ class muninview:
             if "config" in request.GET:
                 rows = ["{}.label {}".format(t[0].replace(" ", "_"), t[0]) for t in tuples]
                 return HttpResponse("\n".join([self.config] + rows))
-            if type(tuples) == type([]):
+            if type(tuples) is type([]):
                 rows = ["{} {}".format(t[0].replace(" ", "_"), str(t[1])) for t in tuples]
                 return HttpResponse("\n".join(rows))
             else:

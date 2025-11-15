@@ -87,7 +87,7 @@ def _render_markdown_once(md_input, *, output_format="html", **kwargs):
         if full_json:
             return content, metadata, messages
         return mark_safe(content), metadata, messages
-    except:  # noqa
+    except Exception:
         logger.exception("Unexpected exception raised")
         log_args()
         return "", {}, []

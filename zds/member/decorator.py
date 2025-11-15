@@ -18,7 +18,7 @@ def can_write_and_read_now(func):
     def _can_write_and_read_now(request, *args, **kwargs):
         try:
             profile = request.user.profile
-        except:
+        except Exception:
             # The user is a visitor
             profile = None
 
