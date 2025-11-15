@@ -353,7 +353,7 @@ class NoteForm(forms.Form):
         elif len(text) > settings.ZDS_APP["forum"]["max_post_length"]:
             self._errors["text"] = self.error_class(
                 [
-                    _("Ce message est trop long, il ne doit pas dépasser {0} " "caractères.").format(
+                    _("Ce message est trop long, il ne doit pas dépasser {0} caractères.").format(
                         settings.ZDS_APP["forum"]["max_post_length"]
                     )
                 ]

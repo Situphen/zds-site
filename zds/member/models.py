@@ -364,7 +364,7 @@ class Profile(models.Model):
 
             # We sort internal hats before the others, and we slugify for sorting to sort correctly
             # with diatrics.
-            self._hats.sort(key=lambda hat: f'{"a" if hat.is_staff else "b"}-{old_slugify(hat.name)}')
+            self._hats.sort(key=lambda hat: f"{'a' if hat.is_staff else 'b'}-{old_slugify(hat.name)}")
 
         return self._hats
 

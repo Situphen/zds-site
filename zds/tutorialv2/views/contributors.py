@@ -108,8 +108,9 @@ class AddContributorToContent(LoggedWithReadWriteHability, SingleContentFormView
                 messages.error(
                     self.request,
                     _(
-                        "Ce membre fait déjà partie des "
-                        'contributeurs à la publication avec pour rôle "{}"'.format(contribution_role.title)
+                        'Ce membre fait déjà partie des contributeurs à la publication avec pour rôle "{}"'.format(
+                            contribution_role.title
+                        )
                     ),
                 )
                 return redirect(self.object.get_absolute_url())

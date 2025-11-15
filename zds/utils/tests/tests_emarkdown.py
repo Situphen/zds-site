@@ -44,7 +44,7 @@ class EMarkdownTest(TestCase):
 
         tr = Template("{% load emarkdown %}{{ content | emarkdown_inline}}").render(self.context)
 
-        expected = "<p># Titre 1\n\n" "## Titre <strong>2</strong>\n\n" "### Titre 3\n\n" "> test</p>"
+        expected = "<p># Titre 1\n\n## Titre <strong>2</strong>\n\n### Titre 3\n\n> test</p>"
 
         self.assertEqual(tr, expected)
 
@@ -58,13 +58,13 @@ class EMarkdownTest(TestCase):
 
     def test_shift_heading(self):
         tr = Template("{% load emarkdown %}{{ content | shift_heading_1}}").render(self.context)
-        self.assertEqual("## Titre 1\n\n" "### Titre **2**\n\n" "#### Titre 3\n\n" "&gt; test", tr)
+        self.assertEqual("## Titre 1\n\n### Titre **2**\n\n#### Titre 3\n\n&gt; test", tr)
 
         tr = Template("{% load emarkdown %}{{ content | shift_heading_2}}").render(self.context)
-        self.assertEqual("### Titre 1\n\n" "#### Titre **2**\n\n" "##### Titre 3\n\n" "&gt; test", tr)
+        self.assertEqual("### Titre 1\n\n#### Titre **2**\n\n##### Titre 3\n\n&gt; test", tr)
 
         tr = Template("{% load emarkdown %}{{ content | shift_heading_3}}").render(self.context)
-        self.assertEqual("#### Titre 1\n\n" "##### Titre **2**\n\n" "###### Titre 3\n\n" "&gt; test", tr)
+        self.assertEqual("#### Titre 1\n\n##### Titre **2**\n\n###### Titre 3\n\n&gt; test", tr)
 
     def test_special_shift_heading(self):
         sharp_in_code = dedent(

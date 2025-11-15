@@ -41,9 +41,7 @@ def member_login_url(request):
     else:
         return {
             # `quote()` is the function used by the `urlencode` template tag
-            "member_login_url": reverse("member-login")
-            + "?next="
-            + quote(full_path)
+            "member_login_url": reverse("member-login") + "?next=" + quote(full_path)
         }
 
 

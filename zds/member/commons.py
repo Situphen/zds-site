@@ -282,7 +282,7 @@ class DeleteReadingOnlySanction(MemberSanctionState):
         return self.array_infos.get("unls-text", "")
 
     def get_detail(self):
-        return _("vous pouvez désormais poster sur les forums, dans les " "commentaires d'articles et tutoriels.")
+        return _("vous pouvez désormais poster sur les forums, dans les commentaires d'articles et tutoriels.")
 
     def apply_sanction(self, profile, ban):
         profile.can_write = True

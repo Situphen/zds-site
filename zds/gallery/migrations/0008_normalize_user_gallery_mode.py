@@ -26,7 +26,6 @@ from django.db import migrations
 
 
 class Migration(migrations.Migration):
-
     dependencies = [
         ("gallery", "0007_auto_20191122_1154"),
     ]

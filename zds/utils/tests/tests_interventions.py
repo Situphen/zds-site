@@ -102,17 +102,17 @@ class InterventionsTest(TestCase):
         self.assertNotContains(response, "(1 tutoriel)")
 
     def test_interventions_humane_delta(self):
-        tr = Template("{% load interventions %}" "{{ date_today|humane_delta }}").render(self.context)
+        tr = Template("{% load interventions %}{{ date_today|humane_delta }}").render(self.context)
         self.assertEqual(escape("Aujourd'hui"), tr)
 
-        tr = Template("{% load interventions %}" "{{ date_yesterday|humane_delta }}").render(self.context)
+        tr = Template("{% load interventions %}{{ date_yesterday|humane_delta }}").render(self.context)
         self.assertEqual("Hier", tr)
 
-        tr = Template("{% load interventions %}" "{{ date_last_week|humane_delta }}").render(self.context)
+        tr = Template("{% load interventions %}{{ date_last_week|humane_delta }}").render(self.context)
         self.assertEqual("Les 7 derniers jours", tr)
 
-        tr = Template("{% load interventions %}" "{{ date_last_month|humane_delta }}").render(self.context)
+        tr = Template("{% load interventions %}{{ date_last_month|humane_delta }}").render(self.context)
         self.assertEqual("Les 30 derniers jours", tr)
 
-        tr = Template("{% load interventions %}" "{{ date_last_year|humane_delta }}").render(self.context)
+        tr = Template("{% load interventions %}{{ date_last_year|humane_delta }}").render(self.context)
         self.assertEqual("Plus ancien", tr)

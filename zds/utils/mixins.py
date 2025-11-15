@@ -24,7 +24,7 @@ class FilterMixin:
 
     def get_default_filter_param(self):
         if self.default_filter_param is None:
-            raise ImproperlyConfigured("'FilterMixin' requires the 'default_filter_param' attribute " "to be set.")
+            raise ImproperlyConfigured("'FilterMixin' requires the 'default_filter_param' attribute to be set.")
         return self.default_filter_param
 
     def get_filter_param(self):

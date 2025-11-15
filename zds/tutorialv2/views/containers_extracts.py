@@ -346,7 +346,7 @@ class MoveChild(LoginRequiredMixin, SingleContentPostMixin, FormView):
         except TooDeepContainerError:
             messages.error(
                 self.request,
-                _("Ce conteneur contient déjà trop d'enfants pour être" " inclus dans un autre conteneur."),
+                _("Ce conteneur contient déjà trop d'enfants pour être inclus dans un autre conteneur."),
             )
         except KeyError:
             messages.warning(

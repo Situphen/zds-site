@@ -215,8 +215,7 @@ REST_FRAMEWORK = {
 REST_FRAMEWORK_EXTENSIONS = {
     # If the cache isn't specify in the API, the time of the cache
     # is specified here in seconds.
-    "DEFAULT_CACHE_RESPONSE_TIMEOUT": 60
-    * 15
+    "DEFAULT_CACHE_RESPONSE_TIMEOUT": 60 * 15
 }
 
 

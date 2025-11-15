@@ -63,9 +63,7 @@ class TopicForm(forms.Form, FieldValidatorMixin):
                 """<div id="topic-suggest" style="display:none;"  url="{}">
   <label>{}</label>
   <div id="topic-result-container" data-neither="{}"></div>
-</div>""".format(
-                    reverse("search:similar"), _("Sujets similaires au vôtre :"), _("Aucun résultat")
-                )
+</div>""".format(reverse("search:similar"), _("Sujets similaires au vôtre :"), _("Aucun résultat"))
             ),
             CommonLayoutEditor(),
         )
@@ -85,7 +83,7 @@ class TopicForm(forms.Form, FieldValidatorMixin):
             self.check_text_length_limit(
                 text,
                 settings.ZDS_APP["forum"]["max_post_length"],
-                lambda: _("Ce message est trop long, " "il ne doit pas dépasser {0} caractères"),
+                lambda: _("Ce message est trop long, il ne doit pas dépasser {0} caractères"),
             )
 
         tags = cleaned_data.get("tags")
@@ -145,7 +143,7 @@ class PostForm(forms.Form, FieldValidatorMixin):
             self.check_text_length_limit(
                 text,
                 settings.ZDS_APP["forum"]["max_post_length"],
-                lambda: _("Ce message est trop long, " "il ne doit pas dépasser {0} caractères"),
+                lambda: _("Ce message est trop long, il ne doit pas dépasser {0} caractères"),
             )
         return cleaned_data
 

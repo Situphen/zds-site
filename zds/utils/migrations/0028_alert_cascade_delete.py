@@ -5,7 +5,6 @@ from django.db import migrations, models
 
 
 class Migration(migrations.Migration):
-
     dependencies = [
         ("tutorialv2", "0041_remove_must_reindex"),
         ("utils", "0027_remove_update_index_date"),

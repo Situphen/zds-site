@@ -896,7 +896,7 @@ class Container:
                 f.write(parsed)
             except (UnicodeError, UnicodeEncodeError):
                 raise failure_exception(
-                    _("Une erreur est survenue durant la publication de « {} »," " vérifiez le code markdown").format(
+                    _("Une erreur est survenue durant la publication de « {} », vérifiez le code markdown").format(
                         self.title
                     )
                 )

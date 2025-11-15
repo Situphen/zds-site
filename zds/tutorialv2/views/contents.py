@@ -495,9 +495,7 @@ class DeleteContent(LoginRequiredMixin, SingleContentViewMixin, DeleteView):
                 beta_topic.save()
                 post = beta_topic.first_post()
                 post.update_content(
-                    _("[[a]]\n" "| Malheureusement, {} qui était en bêta a été supprimé par son auteur.\n\n").format(
-                        _type
-                    )
+                    _("[[a]]\n| Malheureusement, {} qui était en bêta a été supprimé par son auteur.\n\n").format(_type)
                     + post.text
                 )
 

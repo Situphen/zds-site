@@ -569,8 +569,7 @@ class ParticipantDetailView(RetrieveUpdateDestroyAPIView, NoPatchView, GalleryUp
         except NoMoreUserWithWriteIfLeave:
             raise exceptions.PermissionDenied(
                 detail=_(
-                    "Vous ne pouvez pas quitter la galerie, "
-                    "car plus aucun autre participant n'a les droits d'écriture"
+                    "Vous ne pouvez pas quitter la galerie, car plus aucun autre participant n'a les droits d'écriture"
                 )
             )
 

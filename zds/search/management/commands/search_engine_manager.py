@@ -60,8 +60,8 @@ class Command(BaseCommand):
 
             if verbose:
                 duration = int(time.time() - model_start_time)
-                self.stdout.write(f"  {indexed_counter}\titems indexed in {duration//60}min{duration%60}s")
+                self.stdout.write(f"  {indexed_counter}\titems indexed in {duration // 60}min{duration % 60}s")
 
         if verbose:
             duration = int(time.time() - global_start_time)
-            self.stdout.write(f"All done in {duration//60}min{duration%60}s")
+            self.stdout.write(f"All done in {duration // 60}min{duration % 60}s")

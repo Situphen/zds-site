@@ -22,7 +22,7 @@ class CreateProfileReportView(LoginRequiredMixin, View):
             alert = Alert(author=request.user, profile=profile, scope="PROFILE", text=reason, pubdate=datetime.now())
             alert.save()
             messages.success(
-                request, _("Votre signalement a été transmis à l'équipe de modération. " "Merci de votre aide !")
+                request, _("Votre signalement a été transmis à l'équipe de modération. Merci de votre aide !")
             )
         return redirect(profile.get_absolute_url())
 

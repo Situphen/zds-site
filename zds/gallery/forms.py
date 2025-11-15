@@ -152,7 +152,7 @@ class ImageForm(forms.ModelForm):
         if physical is not None and physical.size > settings.ZDS_APP["gallery"]["image_max_size"]:
             self._errors["physical"] = self.error_class(
                 [
-                    _("Votre image est trop lourde, la limite autorisée " "est de {0} Ko").format(
+                    _("Votre image est trop lourde, la limite autorisée est de {0} Ko").format(
                         settings.ZDS_APP["gallery"]["image_max_size"] / 1024
                     )
                 ]
@@ -196,7 +196,7 @@ class ArchiveImageForm(forms.Form):
             Field("file"),
             ButtonHolder(
                 StrictButton(_("Importer"), type="submit"),
-                HTML('<a class="btn btn-cancel" ' 'href="{{ gallery.get_absolute_url }}">Annuler</a>'),
+                HTML('<a class="btn btn-cancel" href="{{ gallery.get_absolute_url }}">Annuler</a>'),
             ),
         )
 

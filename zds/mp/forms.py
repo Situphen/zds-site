@@ -119,7 +119,7 @@ class PrivatePostForm(forms.Form):
         if topic.one_participant_remaining():
             self.helper["text"].wrap(
                 Field,
-                placeholder=_("Vous êtes seul dans cette conversation, " "vous ne pouvez plus y écrire."),
+                placeholder=_("Vous êtes seul dans cette conversation, vous ne pouvez plus y écrire."),
                 disabled=True,
             )
 

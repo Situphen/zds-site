@@ -874,7 +874,7 @@ class ForumGuestTests(TestCase):
             {
                 "title": "Un autre sujet",
                 "subtitle": "Encore ces lombards en plein ete",
-                "text": "C'est tout simplement l'histoire de " "la ville de Paris que je voudrais vous conter ",
+                "text": "C'est tout simplement l'histoire de la ville de Paris que je voudrais vous conter ",
             },
             follow=False,
         )
@@ -935,7 +935,7 @@ class ForumGuestTests(TestCase):
         self.assertNotEqual(Topic.objects.get(pk=topic1.pk).subtitle, "Encore ces lombards en plein été")
         self.assertNotEqual(
             Post.objects.get(pk=post1.pk).text,
-            "C'est tout simplement l'histoire de la ville de " "Paris que je voudrais vous conter ",
+            "C'est tout simplement l'histoire de la ville de Paris que je voudrais vous conter ",
         )
 
     def test_edit_post(self):
@@ -954,7 +954,7 @@ class ForumGuestTests(TestCase):
         self.assertEqual(result.status_code, 302)
         self.assertNotEqual(
             Post.objects.get(pk=post2.pk).text,
-            "C'est tout simplement l'histoire de la ville de " "Paris que je voudrais vous conter ",
+            "C'est tout simplement l'histoire de la ville de Paris que je voudrais vous conter ",
         )
 
     def test_quote_post(self):

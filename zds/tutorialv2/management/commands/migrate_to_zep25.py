@@ -78,7 +78,7 @@ class Command(BaseCommand):
                 ("Systèmes d'exploitation", "Android, GNU/Linux, iOS, MAC OS, Windows, Windows Phone"),
                 (
                     "Autres (informatique)",
-                    "API, Base de données, FTP, Jeux vidéos, MySQL, Oracle, Protocole, Sécurité, TCP/" "IP",
+                    "API, Base de données, FTP, Jeux vidéos, MySQL, Oracle, Protocole, Sécurité, TCP/IP",
                 ),
             ],
             # Sciences de la nature

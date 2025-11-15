@@ -199,16 +199,16 @@ class UpdateNoteView(SendNoteFormView):
                 messages.add_message(
                     self.request,
                     messages.WARNING,
-                    _(
-                        "Vous éditez ce message en tant que modérateur (auteur : {})." " Ne faites pas de bêtise !"
-                    ).format(self.reaction.author.username),
+                    _("Vous éditez ce message en tant que modérateur (auteur : {}). Ne faites pas de bêtise !").format(
+                        self.reaction.author.username
+                    ),
                 )
 
                 # show alert, if any
                 alerts = Alert.objects.filter(comment__pk=self.reaction.pk, solved=False)
                 if alerts.count():
                     msg_alert = _(
-                        "Attention, en éditant ce message vous résolvez également " "les alertes suivantes : {}"
+                        "Attention, en éditant ce message vous résolvez également les alertes suivantes : {}"
                     ).format(", ".join([f"« {a.text} » (signalé par {a.author.username})" for a in alerts]))
                     messages.warning(self.request, msg_alert)
 

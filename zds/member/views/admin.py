@@ -64,9 +64,9 @@ def settings_promote(request, user_pk):
 
         usergroups = user.groups.all()
         bot = get_bot_account()
-        msg = _(
-            "Bonjour {0},\n\n" "Un administrateur vient de modifier les groupes " "auxquels vous appartenez.  \n"
-        ).format(user.username)
+        msg = _("Bonjour {0},\n\nUn administrateur vient de modifier les groupes auxquels vous appartenez.  \n").format(
+            user.username
+        )
         if len(usergroups) > 0:
             msg = format_lazy("{}{}", msg, _("Voici la liste des groupes dont vous faites dorénavant partie :\n\n"))
             for group in usergroups:

@@ -33,7 +33,7 @@ def cleanup_validation_alerts(sender, instance, *, moderator=None, **__):
         reactions = ContentReaction.objects.filter(related_content=instance).values_list("pk", flat=True)
         Alert.objects.filter(comment__in=reactions).update(
             moderator=moderator,
-            resolve_reason=_("Le billet a" " été dépublié."),
+            resolve_reason=_("Le billet a été dépublié."),
             solved_date=datetime.datetime.now(),
             solved=True,
         )

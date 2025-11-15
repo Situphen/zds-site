@@ -183,7 +183,7 @@ def add_hat(request, user_pk):
             hat_request.solve(
                 is_granted=False,
                 comment=_(
-                    "La demande a été automatiquement annulée car " "la casquette vous a été accordée manuellement."
+                    "La demande a été automatiquement annulée car la casquette vous a été accordée manuellement."
                 ),
             )
         except HatRequest.DoesNotExist:

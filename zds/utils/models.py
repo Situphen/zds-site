@@ -342,7 +342,7 @@ def get_hat_to_add(hat_name, user):
         raise ValueError(_("Veuillez saisir une casquette."))
     if contains_utf8mb4(hat_name):
         raise ValueError(
-            _("La casquette saisie contient des caractères utf8mb4, " "ceux-ci ne peuvent pas être utilisés.")
+            _("La casquette saisie contient des caractères utf8mb4, ceux-ci ne peuvent pas être utilisés.")
         )
     if len(hat_name) > 40:
         raise ValueError(_("La longueur des casquettes est limitée à 40 caractères."))

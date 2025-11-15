@@ -124,7 +124,7 @@ def load_gallery(cli, size, fake, *_, **__):
     nb_users = User.objects.count()
     if nb_users == 0:
         cli.stdout.write(
-            "Il n'y a aucun membre actuellement. " "Vous devez rajouter les membres dans vos fixtures (member)"
+            "Il n'y a aucun membre actuellement. Vous devez rajouter les membres dans vos fixtures (member)"
         )
         return
     profiles = list(Profile.objects.all())
@@ -221,21 +221,19 @@ def load_topics(cli, size, fake, *_, **__):
     tps1 = time.time()
     nb_forums = Forum.objects.count()
     if nb_forums == 0:
-        cli.stdout.write(
-            "Il n'y a aucun forum actuellement. " "Vous devez rajouter les forums dans vos fixtures (forum)"
-        )
+        cli.stdout.write("Il n'y a aucun forum actuellement. Vous devez rajouter les forums dans vos fixtures (forum)")
         return
     forums = list(Forum.objects.all())
     nb_users = User.objects.count()
     if nb_users == 0:
         cli.stdout.write(
-            "Il n'y a aucun membre actuellement. " "Vous devez rajouter les membres dans vos fixtures (member)"
+            "Il n'y a aucun membre actuellement. Vous devez rajouter les membres dans vos fixtures (member)"
         )
         return
     profiles = list(Profile.objects.all())
     nb_tags = Tag.objects.count()
     if nb_tags == 0:
-        cli.stdout.write("Il n'y a aucun tag actuellement. " "Vous devez rajouter les tags dans vos fixtures (tag)")
+        cli.stdout.write("Il n'y a aucun tag actuellement. Vous devez rajouter les tags dans vos fixtures (tag)")
         return
     for i in range(0, nb_topics):
         with contextlib.suppress(IntegrityError):
@@ -271,15 +269,13 @@ def load_posts(cli, size, fake, *_, **__):
     tps1 = time.time()
     nb_topics = Topic.objects.count()
     if nb_topics == 0:
-        cli.stdout.write(
-            "Il n'y a aucun topic actuellement. " "Vous devez rajouter les topics dans vos fixtures (topic)"
-        )
+        cli.stdout.write("Il n'y a aucun topic actuellement. Vous devez rajouter les topics dans vos fixtures (topic)")
         return
     topics = list(Topic.objects.all())
     nb_users = User.objects.count()
     if nb_users == 0:
         cli.stdout.write(
-            "Il n'y a aucun membre actuellement. " "Vous devez rajouter les membres dans vos fixtures (member)"
+            "Il n'y a aucun membre actuellement. Vous devez rajouter les membres dans vos fixtures (member)"
         )
         return
     __generate_topic_and_post(cli, fake, nb_avg_posts_in_topic, nb_topics, nb_users, topics, tps1)
@@ -473,7 +469,7 @@ def load_contents(cli, size, fake, _type, *_, **__):
     nb_sub_categories = len(sub_categories)
     if nb_users == 0:
         cli.stdout.write(
-            "Il n'y a aucun membre actuellement. " "Vous devez rajouter les membre dans vos fixtures (member)"
+            "Il n'y a aucun membre actuellement. Vous devez rajouter les membre dans vos fixtures (member)"
         )
         return
 
@@ -489,9 +485,7 @@ def load_contents(cli, size, fake, _type, *_, **__):
     nb_staffs = len(staffs)
 
     if nb_staffs == 0:
-        cli.stdout.write(
-            "Il n'y a aucun staff actuellement." "Vous devez rajouter les staffs dans vos fixtures (staff)"
-        )
+        cli.stdout.write("Il n'y a aucun staff actuellement.Vous devez rajouter les staffs dans vos fixtures (staff)")
         return
 
     licenses = list(Licence.objects.all())
@@ -499,8 +493,7 @@ def load_contents(cli, size, fake, _type, *_, **__):
 
     if nb_licenses == 0:
         cli.stdout.write(
-            "Il n'y a aucune licence actuellement."
-            "Vous devez rajouter les licences dans vos fixtures (category_content)"
+            "Il n'y a aucune licence actuellement.Vous devez rajouter les licences dans vos fixtures (category_content)"
         )
         return
 
